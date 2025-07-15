@@ -16,7 +16,7 @@ function Searchbar() {
     }
   };
   return (
-    <div className="border-[2px] border-gray-200 rounded-lg flex flex-row justify-around items-center px-2 hover:border-primary-300 bg-white">
+    <div className="   border-[2px] border-gray-200 rounded-lg flex flex-row justify-around items-center px-2 hover:border-primary-300 bg-white">
       <FontAwesomeIcon icon={faSearch} className="text-gray-400 " />
       <input
         type="text"
