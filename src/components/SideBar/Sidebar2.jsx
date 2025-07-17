@@ -32,8 +32,8 @@ return (
     <div className={` ${isOpen ? "flex" : "hidden"} w-full h-full md:hidden bg-black/50 backdrop-blur-xs  fixed top-0 left-0 ` }> 
     <div className={`
             flex flex-col gap-3 px-3 py-5 w-[60%]  h-full translate-x -left-100  absolute top-0 left-0  bg-blend-overlay bg-white   md:hidden`}>
-        <div >
-            <button onClick={onMenuToggle}  className="text-[1.2rem]">&#9776;</button>
+        <div className=' px-2'>
+            <button onClick={onMenuToggle}  className="text-[1.2rem] border border-black px-1 rounded-sm">&#9776;</button>
         </div>
     <ul className=' w-full  flex flex-col items-center gap-4 border-b-1 border-gray-500 py-2 px-2'>
     {

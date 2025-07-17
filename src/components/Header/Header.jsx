@@ -1,16 +1,26 @@
 import { Logo, Searchbar } from "../index.js";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 
 function Header({ onMenuToggle }) {
+  const location =useLocation()
+  
+  if(location.pathname== '/login'||location.pathname== '/signup'){
+      return null
+  }
+
+  
   return (
     <div className=" flex flex-row w-[100%] h-18 justify-between px-4 items-center">
+      <div className=" flex gap-1 justify-center items-center">
       <div className="md:hidden">
-        <button onClick={onMenuToggle} className="text-[1.2rem]">
+        <button onClick={onMenuToggle} className=" text-[1.2rem] border border-black px-1 rounded-sm">
           &#9776;
         </button>
       </div>
       <div>
-        <Logo />
+        <Logo className="hidden md:inline" />
+      </div>
       </div>
       <div>
         <Searchbar />

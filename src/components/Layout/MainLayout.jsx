@@ -16,8 +16,7 @@ function MainLayout() {
     <Sidebar2 isOpen={isSidebarOpen} onMenuToggle={toggleSidebar} />
     <div className=" w-full flex flex-row  flex-1">
       <Sidebar />
-      <main className=" w-[100%] xl:w-[85%] px-10 py-2 border-amber-200 border-2 ">
-        Home part:
+      <main className=" w-[100%] ">
         <Outlet />
       </main>
     </div>

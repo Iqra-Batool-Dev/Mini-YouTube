@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink , useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faThumbsUp, faNoteSticky, faBookBookmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,6 +27,14 @@ function Sidebar() {
         },
 
     ]
+
+    const location =useLocation()
+
+    if(location.pathname== '/login'||location.pathname== '/signup'){
+        return null
+    }
+
+
   return (
     <div className=' w-[10%] xl:w-[15%] hidden md:flex flex-col flex-1 items-center px-1 '>
       <ul className=' w-full  flex flex-col items-center gap-4 border-b-1 border-gray-500 py-2 px-2'>
