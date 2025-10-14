@@ -23,7 +23,7 @@ function Sidebar() {
         {
             icon: faBookBookmark,
             text: "Bookmarked",
-            slug: '/bookmark'
+            slug: '/bookmarks'
         },
 
     ]
@@ -36,12 +36,12 @@ function Sidebar() {
 
 
   return (
-    <div className=' w-[10%] xl:w-[15%] hidden md:flex flex-col flex-1 items-center px-1 '>
-      <ul className=' w-full  flex flex-col items-center gap-4 border-b-1 border-gray-500 py-2 px-2'>
+    <div className=' w-[10%] xl:w-[15%] hidden md:flex flex-col flex-1 items-center px-1  '>
+      <ul className=' w-full  flex flex-col items-center gap-4 border-b-1 border-gray-400 py-2 px-2'>
        {
         sideBarItems?.map((item, index)=>(
             <li key={index}
-                className='  w-full px-6 py-3 border-0 rounded-2xl  hover:bg-gray-200  pointer-events-none   '>
+                className='  w-full px-6 py-3 border-0 rounded-2xl transition-all duration-300 text-gray-900  hover:bg-gray-200  pointer-events-none   '>
                     <NavLink to={item.slug} className={({isActive})=> ` pointer-events-auto flex flex-col  items-center gap-2 xl:gap-4 xl:flex-row  ${isActive ? "font-semibold" : "font-normal "}`}>
                     <FontAwesomeIcon icon={item.icon} className=' text-xl'/> 
                     <span className=' text-[0.7rem] xl:text-[1rem] '> {item.text} </span>

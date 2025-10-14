@@ -9,4 +9,3 @@ function Liked() {
 }
 
 export default Liked
-Liked

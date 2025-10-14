@@ -13,7 +13,7 @@ function MainLayout() {
   return (
     <div className=" w-full flex flex-col min-h-screen flex-wrap ">
     <Header onMenuToggle={toggleSidebar} />
-    <Sidebar2 isOpen={isSidebarOpen} onMenuToggle={toggleSidebar} />
+    <Sidebar2 isOpen={isSidebarOpen} onMenuToggle={toggleSidebar} onUpdateSidebar = {setIsSidebarOpen} />
     <div className=" w-full flex flex-row  flex-1">
       <Sidebar />
       <main className=" w-[100%] ">

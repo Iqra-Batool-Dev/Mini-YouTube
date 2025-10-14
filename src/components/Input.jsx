@@ -7,7 +7,7 @@ const Input = React.forwardRef(function Input({
     ...props
 }, ref) {
     const id= useId()
-  return (
+    return (
     <div className=' flex flex-col '>
         {label && <label className='mb-1'
             htmlFor={id}>
@@ -20,7 +20,7 @@ const Input = React.forwardRef(function Input({
             id={id}
         />
     </div>
-  )
+    )
 })
 
 export default Input
