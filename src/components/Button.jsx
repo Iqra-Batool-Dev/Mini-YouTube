@@ -6,7 +6,7 @@ function Button({
     ...props 
 }) {
   return (
-    <button className={`cursor-pointer bg-blue-500 text-white rounded-2xl ${className}`} {...props} >
+    <button className={`cursor-pointer  ${className}`} {...props} >
       {children}
     </button>
   )

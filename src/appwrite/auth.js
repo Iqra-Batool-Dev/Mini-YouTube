@@ -7,11 +7,10 @@ export class AuthService {
 
     constructor() {
         this.Client
-            .setEndpoint(config.appwriteUrl)
-            .setProject(config.appwriteProjectId);
+            .setEndpoint(config.APPWRITE_URL)
+            .setProject(config.APPWRITE_PROJECT_ID);
 
         this.account = new Account(this.Client)
-
 
     }
 
@@ -21,7 +20,9 @@ export class AuthService {
             if(account){
                 this.login({email, password}) // if user account created successfully just make login
             }
-            return account
+            else{
+                return account
+            }
         } catch (error) {
             throw error
         }
@@ -35,7 +36,6 @@ export class AuthService {
         }
     }
 
-
     loginWithGoogle(){
         try {
                 this.account.createOAuth2Session(
@@ -47,11 +47,16 @@ export class AuthService {
             throw error
         }
     }
-
+    
     async getCurrentUser(){
         try {
-            const userData = await this.account.get()
-            return userData
+            const currentUser = await this.account.get() 
+            if(currentUser){
+                return currentUser
+            }
+            else{
+                return null
+            }
         } catch (error) {
             throw error
         }
