@@ -17,12 +17,14 @@ function Signup() {
     setError("");
     try {
       const userData = await authService.createAccount(data);
+      console.log('signup data',userData.name)
       if(userData){
-        const userInfo = await authService.getCurrentUser();
-        if (userInfo) {
-          dispatch(storeLogin(userInfo));
-          navigate("/");
-        }
+          const userInfo = await authService.getCurrentUser()
+          if(userInfo){
+            console.log('userinfo:' , userInfo)
+            dispatch(storeLogin(userInfo));
+            navigate("/");
+          }
       }
     } catch (error) {
       setError(error.message);
@@ -30,8 +32,9 @@ function Signup() {
   };
   return (
 
+
     <div className=" w-[100%]  px-6 py-6  md:w-96  flex flex-col items-center gap-2 border-1 border-gray-200 bg-gray-100 rounded-3xl shadow-lg  ">
-    <div>
+      <div>
         <Logo />
       </div>
       <h1 className=" text-black text-[1.6rem] font-medium mb-4">Create an account</h1>
@@ -62,7 +65,7 @@ function Signup() {
               required: true,
               validation: {
                 matchPattern: (value) =>
-                  /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
+                  /^([\w.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
                   "Email address must be valid address",
               },
             })}
@@ -81,7 +84,7 @@ function Signup() {
               },
             })}
           />
-          <Button type="submit" className="w-full p-2 bg-amber-700">
+          <Button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-2xl">
             Sign Up
           </Button>
         </div>

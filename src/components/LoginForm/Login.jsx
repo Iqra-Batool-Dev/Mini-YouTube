@@ -16,12 +16,15 @@ function Login() {
   const login = async (data) => {
     setError("");
     try {
-      await authService.login(data);
+      const session = await authService.login(data);
+      if(session){
         const userData = await authService.getCurrentUser();
+        console.log("user name is "+userData.name)
         if (userData) {
           dispatch(storeLogin(userData));
           navigate("/");
         }
+      }
     } catch (error) {
       setError(error.message);
     }
@@ -72,7 +75,7 @@ function Login() {
               },
             })}
           />
-          <Button type="submit" className="w-full p-2 bg-amber-700">
+          <Button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-2xl ">
             Sign In
           </Button>
         </div>
